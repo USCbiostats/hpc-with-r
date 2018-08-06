@@ -1,4 +1,4 @@
 slidy_presentation:
   footer: ggvy.cl
-  highlight: kate
+  highlight: pygments
   font_adjustment: -1

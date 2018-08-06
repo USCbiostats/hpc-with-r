@@ -249,6 +249,49 @@ stopCluster(cl)
 c(par = mean(ans_par), ser = mean(ans_ser), R = pi)
 ```
 
+# Slurm Example 1
+
+```r
+# Include this to tell where everything will be living at
+.libPaths("~/R/x86_64-pc-linux-gnu-library/3.4/")
+
+# Default CRAN mirror from where to download R packages
+options(repos =c(CRAN="https://cloud.r-project.org/"))
+
+library(ABCoptim)
+
+fun <- function(x) {
+  -cos(x[1])*cos(x[2])*exp(-((x[1] - pi)^2 + (x[2] - pi)^2))
+}
+
+ans <- abc_optim(rep(0,2), fun, lb=-10, ub=10, criter=50)
+
+saveRDS(
+   ans,
+   file = paste0(
+      "~/hpc-with-r/examples/01-slurm-abcoptim-",
+      Sys.getenv("SLURM_JOB_ID"),
+      "-",
+      Sys.getenv("SLURM_ARRAY_TASK_ID"),
+      ".rds"
+))
+```
+
+---
+
+```bash
+#!/bin/bash 
+#SBATCH --tasks=1
+#SBATCH --array=1-3
+#SBATCH --job-name=01-slurm-abcoptim
+#SBATCH --output=01-slurm-abcoptim-%A_%a.out
+
+source /usr/usc/R/3.4.0/setup.sh
+Rscript --vanilla ~/hpc-with-r/examples/01-slurm-abcoptim.R 
+```
+
+
+
 # RcppArmadillo + OpenMP + Slurm: Using the `rslurm` package
 
 *   The [`rslurm` package (Marchand, 2017)](https://CRAN.R-project.org/package=rslurm) provides a wrapper of Slurm in R.
