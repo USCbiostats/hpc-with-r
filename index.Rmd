@@ -1,0 +1,17 @@
+---
+title: 'Workshop: Introduction to R<br>(for HPC users)<br><img src="fig/trojan-rlogo.svg" width="250px">'
+author: George G. Vega Yon<br>University of Southern California<br>Department of Preventive Medicine
+date: "<br>USC Integrative Methods of Analysis for Genomic Epidemiology (IMAGE)<br>Department of Preventive Medicine<br>July 7th, 2018"
+bibliography: intro2r.bib
+---
+
+```{r intro, child="01-intro.Rmd"}
+```
+
+```{r language-fundamentals, child="02-objects.Rmd"}
+```
+
+```{r parallel-computing, child="03-parallel-computing.Rmd"}
+
+```
+

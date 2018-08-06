@@ -14,12 +14,6 @@ date: '<br>USC Integrative Methods of Analysis for Genomic Epidemiology (IMAGE)<
 
 ```{r setup, include=FALSE, fig.align='center', warning=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo = TRUE, comment = "#")
-
-# Installing required packages if you don't have it!
-pkgs <- c("devtools", "RcppArmadillo", "foreach", "iterators", "doRNG", "rbenchmark", "microbenchmark",
-          "snow", "doParallel", "randomForest", "MASS")
-pkgs <- pkgs[which(!(pkgs %in% installed.packages()[,1]))]
-if (length(pkgs)) install.packages(pkgs)
 ```
 
 # Agenda
@@ -28,14 +22,7 @@ if (length(pkgs)) install.packages(pkgs)
     
 2.  Parallel computing in R
     
-3.  Examples:
-    
-    a.  parallel
-    b.  iterators+foreach
-    c.  RcppArmadillo + OpenMP
-    d.  RcppArmadillo + OpenMP + Slurm
-    
-4.  Exercises
+3.  Extended examples
 
 
 
@@ -69,13 +56,13 @@ Loosely, from R's perspective, we can think of HPC in terms of two, maybe three 
 # Parallel computing
 
 ```{r, echo=FALSE, fig.cap="Flynn's Classical Taxonomy ([Introduction to Parallel Computing, Blaise Barney, Lawrence Livermore National Laboratory](https://computing.llnl.gov/tutorials/parallel_comp/#Whatis))", fig.align='center'}
-knitr::include_graphics("flynnsTaxonomy.gif")
+knitr::include_graphics("fig/flynnsTaxonomy.gif")
 ```
 
 # GPU vs CPU
 
 ```{r, echo=FALSE, fig.cap="[NVIDIA Blog](http://www.nvidia.com/object/what-is-gpu-computing.html)", fig.align='center'}
-knitr::include_graphics("cpuvsgpu.jpg")
+knitr::include_graphics("fig/cpuvsgpu.jpg")
 ```
 
 *   **Why are we still using CPUs instead of GPUs?**
@@ -93,7 +80,7 @@ knitr::include_graphics("cpuvsgpu.jpg")
 # When is it a good idea?
 
 ```{r, echo=FALSE, fig.cap="Ask yourself these questions before jumping into HPC!", fig.align='center'}
-knitr::include_graphics("when_to_parallel.svg")
+knitr::include_graphics("fig/when_to_parallel.svg")
 ```
 
 
@@ -101,32 +88,14 @@ knitr::include_graphics("when_to_parallel.svg")
 
 While there are several alternatives (just take a look at the
 [High-Performance Computing Task View](https://cran.r-project.org/web/views/HighPerformanceComputing.html)),
-we'll focus on the following R-packages/tools for explicit parallelism:
+we'll focus on the following R-packages for explicit parallelism:
 
+*   **parallel**: R package that provides '[s]upport for parallel computation,
+    including random-number generation'.
 
-
-1.  R packages
+*   **foreach**: '[A] new looping construct for executing R code repeatedly
+    [...] that supports parallel execution.'
     
-    *   **parallel**: R package that provides '[s]upport for parallel computation,
-        including random-number generation'.
-    
-    *   **foreach**: '[A] new looping construct for executing R code repeatedly
-        [...] that supports parallel execution.'
-    
-    *   **iterators**: 'tools for iterating over various R data structures'
-    
-2.  RcppArmadillo + OpenMP
-    
-    *   **RcppArmadillo**: 'Armadillo is a C++ linear algebra library, aiming
-        towards a good balance between speed and ease of use.' '[RcppArmadillo]
-        brings the power of Armadillo to R.'
-        
-    *  **OpenMP**: 'Open Multi-Processing is an application programming interface
-        (API) that supports multi-platform shared memory multiprocessing
-        programming in C, C++, and Fortran, on most platforms, processor
-        architectures and operating systems, including Solaris, AIX, HP-UX,
-        Linux, macOS, and Windows.' ([Wiki](https://en.wikipedia.org/wiki/OpenMP))
-
 Implicit parallelism, on the other hand, are out-of-the-box tools that allow the
 programmer not to worry about parallelization, e.g. such as
 [**gpuR**](https://cran.r-project.org/package=gpuR) for Matrix manipulation using
