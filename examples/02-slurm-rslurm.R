@@ -1,3 +1,9 @@
+# Include this to tell where everything will be living at
+.libPaths("~/R/x86_64-pc-linux-gnu-library/3.4/")
+
+# Default CRAN mirror from where to download R packages
+options(repos =c(CRAN="https://cloud.r-project.org/"))
+
 library(rslurm)
 
 # How many nodes are we going to be using
@@ -9,7 +15,7 @@ sjob <- slurm_apply(
   f = function(n) {
     
     # Compiling Rcpp
-    Rcpp::sourceCpp("~/simpi.cpp")
+    Rcpp::sourceCpp("~/hpc-with-r/examples/02-slurm-rslurm.cpp")
     
     # Returning pi
     sim_pi(1e9, cores = 8, seed = n*100)
@@ -29,4 +35,5 @@ sjob <- slurm_apply(
 
 # We save the image so that later we can use the `sjob` object to retrieve the
 # results
-save.image("~/sim-pi.rda")
+save.image("~/hpc-with-r/examples/02-slurm-rslurm.rda")
+
