@@ -125,5 +125,3 @@ In R, if you want to:
 4.  Create a list of R packages that provide wrappers for working with Slurm.
 
 5.  What does return the function for fitting nonlinear least squares in the `stats` package?
- 
-# References

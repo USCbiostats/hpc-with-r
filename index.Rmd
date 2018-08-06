@@ -5,13 +5,27 @@ date: "<br>USC Integrative Methods of Analysis for Genomic Epidemiology (IMAGE)<
 bibliography: intro2r.bib
 ---
 
+# Agenda
+
+1.  Part 1: Talk about the basics: What is R? How to get help!?
+
+2.  Part 2: R language fundamentals.
+
+3.  Part 3: An extended example using HPCC
+
+# PART 1
+
 ```{r intro, child="01-intro.Rmd"}
 ```
 
-```{r language-fundamentals, child="02-objects.Rmd"}
+# PART 2
+
+```{r language-fundamentals, child="02-language-fundamentals.Rmd"}
 ```
+
+# PART 3
 
 ```{r parallel-computing, child="03-parallel-computing.Rmd"}
-
 ```
 
+# References
