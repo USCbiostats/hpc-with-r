@@ -1,4 +1,5 @@
-# Workshop materials
+# Workshop materials [![DOI](https://zenodo.org/badge/142945922.svg)](https://zenodo.org/badge/latestdoi/142945922)
+
 
 
 This is the website of the workshop **Introduction to R (for HPC users)**. The
