@@ -16,8 +16,8 @@ saveRDS(
    ans,
    file = paste0(
       "~/hpc-with-r/examples/01-slurm-abcoptim-",
-      Sys.getenv("SLURM_JOB_ID"),
+      Sys.getenv("SLURM_JOB_ID"),                 # SLURM ENV VAR
       "-",
-      Sys.getenv("SLURM_ARRAY_TASK_ID"),
+      Sys.getenv("SLURM_ARRAY_TASK_ID"),          # SLURM ENV VAR
       ".rds"
 ))

@@ -1,5 +1,5 @@
 ---
-title: 'Intro to R (part 1):<br>Preface<br><img src="fig/trojan-rlogo.svg" width="250px">'
+title: 'Intro to R (part 1):<br>Preface<br><img src="fig/trojan-rlogo.svg" style="width:250px;">'
 author: George G. Vega Yon<br>University of Southern California<br>Department of Preventive Medicine
 date: July 7th, 2018
 bibliography: intro2r.bib
@@ -15,9 +15,11 @@ We will be using:
 
 -   Materials for this presentation (including the presentation itself) can be downloaded from https://github.com/USCbiostats/intro2r-hcp-edition
 
-# What is R
+# The R programming language
 
-## The <img src="fig/Rlogo.svg" width="200px"> programming language 
+<div align="center">
+<img src="fig/Rlogo.svg" style="width:200px;">
+</div>
 
 
 -   Free software oriented for **statistical computing** and **graphics** (although people use for everything now a days)
@@ -38,8 +40,8 @@ We will be using:
 
 <div align="center">
 <figure>
-<img src="fig/jchambers.jpg" height="200px">
-<img src="fig/rcreators.jpg" height="200px" alt="Picture by the New York Times https://nyti.ms/2GC3ruP">
+<img src="fig/jchambers.jpg" style="height:200px;">
+<img src="fig/rcreators.jpg" style="height:200px;" alt="Picture by the New York Times https://nyti.ms/2GC3ruP">
 <figcaption>From left to right: John Chambers, Robert Gentleman, and Ross Ihaka.</figcaption>
 </figure>
 </div>
@@ -109,7 +111,7 @@ In R, if you want to:
 
 <div align = "center">
 <figure>
-<img src="fig/finding-a-function.svg" width ="800px">
+<img src="fig/finding-a-function.svg" style="width:800px;">
 <figcaption>My own personal way of looking for R-based solutions to my problems (in science... of course)</figcaption>
 </figure>
 </div>
