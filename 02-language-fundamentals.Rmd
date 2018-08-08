@@ -125,7 +125,7 @@ str(c(-Inf, 1, NULL, +Inf)) # And Nulls are... of length 0!
     
     What is the mode of the vector `c(my_integer_vector, my_string_vector)`?
     
-3.  What do each one of these functions return on the vector `myvector`?
+3.  What do each one of the functions `is.na()`, `is.null`, `is.infinite`, `is.finite()`, and `is.nan` return on the vector `myvector`?
 
     ```{r testing-is, eval=FALSE, echo=FALSE}
     is.na(myvector)
